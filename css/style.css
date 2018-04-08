@@ -1,0 +1,310 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto|Pacifico');
+/*=============================================
+=            Global            =
+=============================================*/
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Default */
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+button {
+    padding: 5px;
+    cursor: pointer;
+    border-radius: 2px;
+    -webkit-transition-duration: 0.2s;
+    /* Safari */
+    transition-duration: 0.2s;
+}
+
+button:active:not([type=submit]) {
+    box-shadow: 0 2px #666;
+    transform: translateY(4px);
+}
+
+input {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Project Specific */
+
+input:focus {
+    border: 1px solid #03a3e6;
+}
+
+.btn {
+    font-size: 1.2em;
+    color: white;
+    padding: 5px 10px;
+    background-color: #03a3e6;
+    border: 1px solid #03a3e6;
+}
+
+.btn:hover {
+  
+    border: 1px solid #03a3e6;
+    background-color: #68c6ee;
+}
+
+.bold-text {
+    font-weight: 500;
+}
+
+.fa-map-marker,
+.fa-thermometer-empty {
+    color: #03a3e6;
+}
+
+.logo-link {
+    font-family: 'Pacifico', cursive;
+    font-size: 1.5em;
+    color: white;
+}
+
+/*=====  End of Global  ======*/
+
+/*=============================================
+=            Layout            =
+=============================================*/
+
+.wrapper {
+    display: grid;
+    grid-gap: 5px;
+    grid-template-areas: "header" "main" "main" "footer";
+}
+
+.main {
+    grid-area: main;
+    display: grid;
+    grid-gap: 8px;
+    grid-template-areas: "loc-info map-info" " weather-info map-info";
+    grid-template-columns: 300px 1fr;
+}
+
+/*=====  End of Layout  ======*/
+
+header {
+    grid-area: header;
+}
+
+header,
+footer {
+    background-color: #03a3e6;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.08);
+    text-align: center;
+}
+
+/* Cards */
+
+.loc-info,
+.weather-info,
+.map-info {
+    background-color: rgb(248, 246, 246);
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.08);
+}
+
+/*=============================================
+=            Location Info Card            =
+=============================================*/
+
+.loc-info {
+    grid-area: loc-info;
+    padding: 10px;
+}
+
+/*=====  End of Location Info Card  ======*/
+
+/*=============================================
+=            Weather Info Card            =
+=============================================*/
+
+.weather-info {
+    grid-area: weather-info;
+    padding: 10px;
+}
+
+.weather-desc {
+    text-transform: capitalize;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+}
+
+/*=====  End of Weather Info Card  ======*/
+
+/*=============================================
+=            Map Info Card            =
+=============================================*/
+
+.map-info {
+    grid-area: map-info;
+}
+
+.map-info>* {
+    margin: 10px;
+}
+
+.controls>* {
+    display: inline-block;
+}
+
+.btn-curr-loc {
+    margin: 0 20px;
+}
+
+
+/*----------  Search Form  ----------*/
+
+form {
+    position: relative;
+    grid-area: form;
+    width: 40%;
+}
+
+form>* {
+    font-size: 1.2em;
+}
+
+form input.search-input {
+    width: 100%;
+}
+
+form button {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+form button:hover {
+    background-color: #03a3e6;
+    border: 1px solid #03a3e6;
+}
+
+/*----------  Map  ----------*/
+
+#map {
+    height: 600px;
+    border-radius: 2px;
+}
+
+/*=====  End of Map Info Card  ======*/
+
+/*=============================================
+=            Footer            =
+=============================================*/
+
+footer {
+    grid-area: footer;
+    padding: 10px;
+}
+
+footer>p {
+    display: inline;
+    color: white;
+    font-size: 1.3em;
+}
+
+footer input.url-input {
+    width: 400px;
+    font-size: 1em;
+}
+
+.btn-copy-url {
+    border: 1px white solid;
+    font-size: 1em;
+}
+
+.btn-copy-url:hover {
+      border: 1px transparent solid;
+}
+
+/*=====  End of Footer  ======*/
+
+@media (max-width: 922px) {
+    body {
+        margin: 0;
+    }
+    .btn {
+        font-size: 1.2em;
+        padding: 10px;
+    }
+    .btn-curr-loc {
+        margin-top: 20px;
+    }
+    .main {
+        grid-template-areas: "map-info" "loc-info" "weather-info";
+        grid-template-columns: 1fr;
+        margin: 0;
+    }
+    .map-info {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .controls {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 90%;
+    }
+    .logo-link {
+        font-size: 1.3em;
+    }
+    form {
+        width: 99%
+    }
+    form>* {
+        height: 50px;
+    }
+    form input.search-input {
+        width: 100%;
+    }
+    form .btn {
+        padding: 5px 30px;
+    }
+    footer {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    footer>* {
+        margin: 5px;
+    }
+    footer input.url-input {
+        width: 80%;
+        font-size: 12px;
+        text-align: center;
+    }
+    .loc-info,
+    .weather-info {
+        text-align: center;
+    }
+    .weather-desc {
+        justify-content: center;
+    }
+    #map {
+        height: 350px;
+        width: 70%;
+    }
+}
