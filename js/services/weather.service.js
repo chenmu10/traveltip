@@ -3,7 +3,7 @@ const WEATHER_KEY = '56b75833b11b964a909c13b5b3176ec0';
 
 function getWeatherByCoords(coords) {
 
-    return axios.get(`http://api.openweathermap.org/data/2.5/weather?lat=${coords.lat}&lon=${coords.lng}&units=metric&appid=${WEATHER_KEY}`)
+    return axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${coords.lat}&lon=${coords.lng}&units=metric&appid=${WEATHER_KEY}`)
         .then(function (weather) {
             // console.log(weather.data);
             let currWeather = {
@@ -16,7 +16,7 @@ function getWeatherByCoords(coords) {
                 windDeg: weather.data.wind.deg,
                 cityName: weather.data.name,
                 desc: weather.data.weather[0].description,
-                icon: `http://openweathermap.org/img/w/${weather.data.weather[0].icon}.png`
+                icon: `https://openweathermap.org/img/w/${weather.data.weather[0].icon}.png`
             }
            return currWeather;
 
